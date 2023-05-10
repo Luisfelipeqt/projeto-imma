@@ -39,10 +39,10 @@ public class UsuariosServiceImpl implements IUsuariosService {
         return entity;
     }
 
-    public Usuarios create(Usuarios Usuarios) {
-        if (Usuarios == null) throw new ResourceNotFoundException("Usuarios não encontrado!");
+    public Usuarios create(Usuarios usuarios) {
+        if (usuarios == null) throw new ResourceNotFoundException("Usuarios não encontrado!");
         logger.info("Criando um usuarios!");
-        var entity =  usuariosRepository.save(Usuarios);
+        var entity =  usuariosRepository.save(usuarios);
         return entity;
     }
 

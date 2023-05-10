@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 @Data
@@ -15,6 +16,7 @@ import java.io.Serializable;
 @ToString(onlyExplicitlyIncluded = true)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class ConvenioSaude implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id

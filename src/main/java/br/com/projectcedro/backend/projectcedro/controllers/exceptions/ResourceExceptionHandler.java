@@ -1,6 +1,6 @@
 package br.com.projectcedro.backend.projectcedro.controllers.exceptions;
 
-
+import br.com.projectcedro.backend.projectcedro.services.exceptions.DatabaseException;
 import br.com.projectcedro.backend.projectcedro.services.exceptions.ResourceNotFoundException;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies.SnakeCaseStrategy;
 import jakarta.annotation.Nullable;
@@ -15,14 +15,17 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 @RestControllerAdvice
 public class ResourceExceptionHandler extends ResponseEntityExceptionHandler {
 
     private final SnakeCaseStrategy snakeCaseStrategy = new SnakeCaseStrategy();
 
-    @ExceptionHandler(ResourceNotFoundException.class)
+    @ExceptionHandler({ResourceNotFoundException.class, DatabaseException.class})
     public ResponseEntity<ErrorResponse> handleModelNotFoundException(
             ResourceNotFoundException exception, WebRequest request
     ) {

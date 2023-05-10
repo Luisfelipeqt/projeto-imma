@@ -5,6 +5,9 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -13,7 +16,9 @@ import lombok.*;
 @ToString(onlyExplicitlyIncluded = true)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Usuarios {
+public class Usuarios implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
     @ToString.Include

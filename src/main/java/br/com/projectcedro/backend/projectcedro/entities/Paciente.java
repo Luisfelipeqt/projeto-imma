@@ -39,39 +39,42 @@ public class Paciente extends RepresentationModel<Paciente>  implements Serializ
     private Long id;
 
     @NotNull
+    @NotEmpty
     @Size(min = 3, max = 80)
     @Column(nullable = false, length = 80)
     private String firstName;
 
     @NotNull
+    @NotEmpty
     @Size(min = 3, max = 80)
     @Column(nullable = false, length = 80)
     private String lastName;
 
-    @NotNull
-    @Size(min = 14, max = 14)
     @CPF
+    @NotNull
+    @NotEmpty
+    @Size(min = 14, max = 14)
     @Column(nullable = false, length = 14, unique = true)
     private String cpf;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    @Column(name = "data_nascimento", nullable = false)
-    @DateTimeFormat(iso = ISO.DATE)
-    @Temporal(TemporalType.DATE)
     @Past
     @NotNull
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = ISO.DATE)
+    @Column(name = "data_nascimento", nullable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Date dataNascimento;
 
     @NotNull
+    @NotEmpty
     @Size(min = 15, max = 15)
-    @Pattern(regexp = "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$", message = "Deve estar no formato (99) 99999-9999")
     @Column(nullable = false, length = 15)
+    @Pattern(regexp = "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$", message = "Deve estar no formato (99) 99999-9999")
     private String telefone;
 
-    @NotNull
-    @Size(min = 10, max = 80)
     @Email
-    @Column(nullable = false, length = 80, unique = true)
+    @Size(min = 10, max = 80)
+    @Column(length = 80, unique = true)
     private String email;
 
     @JsonIgnore

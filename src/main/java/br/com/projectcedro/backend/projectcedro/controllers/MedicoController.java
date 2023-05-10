@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -80,8 +81,7 @@ public class MedicoController {
             @ApiResponse(description = "Error no servidor", responseCode = "500", content = @Content)
     })
     @ResponseStatus(HttpStatus.CREATED)
-    public EntityModel<Medico> create(@RequestBody Medico medico) {
-
+    public EntityModel<Medico> create(@Valid @RequestBody Medico medico) {
         Medico consults = medicoService.create(medico);
         return medicoAssembler.toModel(consults);
     }
@@ -96,7 +96,7 @@ public class MedicoController {
             @ApiResponse(description = "Não encontrado", responseCode = "404", content = @Content),
             @ApiResponse(description = "Error no servidor", responseCode = "500", content = @Content)
     })
-    public EntityModel<Medico> update(@RequestBody Medico medico, @PathVariable Long id) {
+    public EntityModel<Medico> update(@Valid @RequestBody Medico medico, @PathVariable Long id) {
         Medico consults = medicoService.update(medico, id);
         return medicoAssembler.toModel(consults);
     }

@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Logger;
 
 @Service
@@ -61,5 +62,20 @@ public class PacienteServiceImpl implements IPacienteService{
         var entity = pacienteRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Paciente não encontrado!"));
         pacienteRepository.delete(entity);
+    }
+
+    @Override
+    public boolean existsPacienteByCpf(Paciente paciente) {
+        return true;
+    }
+
+    @Override
+    public boolean existsPacienteByCpf(String pacienteCpf) {
+        return true;
+    }
+
+    @Override
+    public Optional<Paciente> findByCpf(String cpf) {
+        return Optional.empty();
     }
 }

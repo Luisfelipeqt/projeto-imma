@@ -12,6 +12,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -90,7 +91,7 @@ public class ConsultaController {
             @ApiResponse(description = "Error no servidor", responseCode = "500", content = @Content)
     })
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<?> create(@RequestBody Consulta consulta) {
+    public ResponseEntity<?> create(@Valid @RequestBody Consulta consulta) {
         var medico = medicoService.findById(consulta.getMedico().getId());
         var dataHora = consulta.getData();
         var paciente = pacienteService.findById(consulta.getPaciente().getId());
@@ -114,7 +115,7 @@ public class ConsultaController {
             @ApiResponse(description = "Não encontrado", responseCode = "404", content = @Content),
             @ApiResponse(description = "Error no servidor", responseCode = "500", content = @Content)
     })
-    public EntityModel<Consulta> update(@RequestBody Consulta consulta, @PathVariable Long id) {
+    public EntityModel<Consulta> update(@Valid@RequestBody Consulta consulta, @PathVariable Long id) {
         Consulta consults = consultaService.update(consulta, id);
         return consultaAssembler.toModel(consults);
     }

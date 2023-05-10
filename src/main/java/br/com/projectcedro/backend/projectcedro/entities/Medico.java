@@ -43,8 +43,8 @@ public class Medico extends RepresentationModel<Medico> implements Serializable 
     private String telefone;
     private String email;
 
-    @Enumerated(EnumType.ORDINAL)
     @Column(nullable = true)
+    @Enumerated(EnumType.ORDINAL)
     private EspecialidadeMedica especialidadeMedica;
 
     private Boolean ativo;

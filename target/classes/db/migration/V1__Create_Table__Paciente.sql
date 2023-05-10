@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `tb_paciente` (
     `cpf` varchar(14) NOT NULL,
     `data_nascimento` date NOT NULL,
     `telefone` varchar(15) NOT NULL,
-    `email` varchar(255) NOT NULL,
+    `email` varchar(255),
     `convenio_saude_id` BIGINT(20),
     PRIMARY KEY (id)
     );

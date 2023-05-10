@@ -1,15 +1,17 @@
 package br.com.projectcedro.backend.projectcedro.controllers;
 
+import br.com.projectcedro.backend.projectcedro.controllers.exceptions.ErrorResponse;
 import br.com.projectcedro.backend.projectcedro.entities.Paciente;
 import br.com.projectcedro.backend.projectcedro.hateoas.PacienteAssembler;
+import br.com.projectcedro.backend.projectcedro.repositories.PacienteRepository;
 import br.com.projectcedro.backend.projectcedro.services.paciente.IPacienteService;
+import br.com.projectcedro.backend.projectcedro.uteis.MediaType;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,9 +20,10 @@ import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
 import org.springframework.http.HttpStatus;
-import br.com.projectcedro.backend.projectcedro.uteis.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -32,13 +35,14 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @Tag(name = "Pacientes", description = "Endpoints para Gerenciamento de Pacientes")
 public class PacienteController {
 
-     
+    private final PacienteRepository pacienteRepository;
+
     private final IPacienteService pacienteService;
 
-     
+
     private final PacienteAssembler pacienteAssembler;
 
-     
+
     private final PagedResourcesAssembler<Paciente> pagedResourcesAssembler;
 
     @GetMapping(
@@ -84,10 +88,13 @@ public class PacienteController {
             @ApiResponse(description = "Error no servidor", responseCode = "500", content = @Content)
     })
     @ResponseStatus(HttpStatus.CREATED)
-    public EntityModel<Paciente> create(@RequestBody Paciente paciente) {
+    public ResponseEntity<?> create(@Valid @RequestBody Paciente paciente) {
+        if(pacienteRepository.existsPacienteByCpf(paciente.getCpf())){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(new ErrorResponse(409, "Usuário já cadastrado", LocalDateTime.now()));
+        }
 
         Paciente consults = pacienteService.create(paciente);
-        return pacienteAssembler.toModel(consults);
+        return ResponseEntity.status(HttpStatus.CREATED).body(consults);
     }
 
     @PutMapping(value = "/{id}",
@@ -100,7 +107,7 @@ public class PacienteController {
             @ApiResponse(description = "Não encontrado", responseCode = "404", content = @Content),
             @ApiResponse(description = "Error no servidor", responseCode = "500", content = @Content)
     })
-    public EntityModel<Paciente> update(@RequestBody Paciente paciente, @PathVariable Long id) {
+    public EntityModel<Paciente> update(@Valid @RequestBody Paciente paciente, @PathVariable Long id) {
         Paciente consults = pacienteService.update(paciente, id);
         return pacienteAssembler.toModel(consults);
     }

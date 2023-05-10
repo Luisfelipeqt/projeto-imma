@@ -1,7 +1,6 @@
 package br.com.projectcedro.backend.projectcedro.services.usuario;
 
 import br.com.projectcedro.backend.projectcedro.entities.Usuarios;
-import br.com.projectcedro.backend.projectcedro.services.exceptions.ResourceNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
