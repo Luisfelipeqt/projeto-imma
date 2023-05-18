@@ -23,7 +23,7 @@ deploy:
     docker tag projectcedro:latest luisfeliperodrigues/projectcedro-deploy:v1;
     docker push luisfeliperodrigues/projectcedro-deploy;
   on:
-    branch: master, main
+    branch: main
 
 notifications:
   email:
