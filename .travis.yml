@@ -1,0 +1,33 @@
+language: java
+jdk:
+  - oraclejdk17
+
+before_install:
+  - sudo apt-get update
+  - cd app/
+  - echo "Let's start Maven Package"
+  - mvn package -DskipTests
+  - cd ..
+  - echo "We are in the Docker folder!"
+
+
+script:
+  - docker-compose build
+
+before_deploy:
+  echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+
+deploy:
+  provider: script
+  script: 
+    docker tag projectcedro:latest luisfeliperodrigues/projectcedro-deploy:v1;
+    docker push luisfeliperodrigues/projectcedro-deploy;
+  on:
+    branch: master
+
+notifications:
+  email:
+    recipients:
+      - luisfelipebr1995@gmail.com
+    on_success: always # Notificar em caso de sucesso
+    on_failure: always # Notificar em caso de falha
