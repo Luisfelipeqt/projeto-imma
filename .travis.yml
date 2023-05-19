@@ -19,9 +19,9 @@ before_deploy:
 
 deploy:
   provider: script
-  script: 
-    docker tag luisfeliperodrigues/projectcedro-deploy luisfeliperodrigues/projectcedro-deploy:v1;
-    docker push luisfeliperodrigues/projectcedro-deploy;
+  script:
+    docker tag projectcedro:latest luisfeliperodrigues/projectcedro-deploy:latest;
+    docker push luisfeliperodrigues/projectcedro-deploy:latest;
   on:
     branch: main
 
