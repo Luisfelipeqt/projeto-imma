@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.logging.Logger;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/especialidades/v1")
 @Tag(name = "Especialidades", description = "Endpoints para Gerenciamento de Especialidades Médicas")

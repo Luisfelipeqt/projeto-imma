@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("http://localhost:8080/")
 @Tag(name = "API", description = "Endpoints para Gerenciamento de API's")

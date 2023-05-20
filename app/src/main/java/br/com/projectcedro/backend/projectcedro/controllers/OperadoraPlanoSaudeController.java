@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.logging.Logger;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/planos/v1")
 @Tag(name = "Planos", description = "Endpoints para Gerenciamento de Planos")
