@@ -26,6 +26,7 @@ C:\Users\felipe\Desktop\projeto imma\app\src\main\java\br\com\projectcedro\backe
 C:\Users\felipe\Desktop\projeto imma\app\src\main\java\br\com\projectcedro\backend\projectcedro\services\medico\IMedicoService.java
 C:\Users\felipe\Desktop\projeto imma\app\src\main\java\br\com\projectcedro\backend\projectcedro\hateoas\MedicoAssembler.java
 C:\Users\felipe\Desktop\projeto imma\app\src\main\java\br\com\projectcedro\backend\projectcedro\uteis\MediaType.java
+C:\Users\felipe\Desktop\projeto imma\app\src\main\java\br\com\projectcedro\backend\projectcedro\services\EmailSenderService.java
 C:\Users\felipe\Desktop\projeto imma\app\src\main\java\br\com\projectcedro\backend\projectcedro\services\exceptions\DatabaseException.java
 C:\Users\felipe\Desktop\projeto imma\app\src\main\java\br\com\projectcedro\backend\projectcedro\controllers\OperadoraPlanoSaudeController.java
 C:\Users\felipe\Desktop\projeto imma\app\src\main\java\br\com\projectcedro\backend\projectcedro\uteis\SenhaUtils.java

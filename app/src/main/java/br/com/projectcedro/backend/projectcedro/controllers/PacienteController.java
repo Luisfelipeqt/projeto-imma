@@ -117,6 +117,11 @@ public class PacienteController {
     })
     public EntityModel<Paciente> update(@Valid @RequestBody Paciente paciente, @PathVariable Long id) {
         Paciente consults = pacienteService.update(paciente, id);
+
+        String destinatario = paciente.getEmail();
+        String assunto = "Dados atualizado com sucesso";
+        String conteudo = "Olá " + paciente.getFirstName() + " " + paciente.getLastName() + ",\n\nSeus dados foram atualizados com sucesso!!";
+
         return pacienteAssembler.toModel(consults);
     }
 

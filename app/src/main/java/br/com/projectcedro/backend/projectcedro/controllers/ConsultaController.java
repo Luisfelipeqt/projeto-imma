@@ -3,6 +3,7 @@ package br.com.projectcedro.backend.projectcedro.controllers;
 import br.com.projectcedro.backend.projectcedro.config.JacksonConfig;
 import br.com.projectcedro.backend.projectcedro.entities.Consulta;
 import br.com.projectcedro.backend.projectcedro.hateoas.ConsultaAssembler;
+import br.com.projectcedro.backend.projectcedro.services.EmailSenderService;
 import br.com.projectcedro.backend.projectcedro.services.consulta.IConsultaService;
 import br.com.projectcedro.backend.projectcedro.services.medico.IMedicoService;
 import br.com.projectcedro.backend.projectcedro.services.paciente.IPacienteService;
@@ -24,6 +25,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
@@ -43,6 +47,9 @@ public class ConsultaController {
     private final ConsultaAssembler consultaAssembler;
 
     private final JacksonConfig jacksonConfig;
+
+    private final EmailSenderService emailSenderService;
+
 
     private final PagedResourcesAssembler<Consulta> pagedResourcesAssembler;
 
@@ -101,6 +108,24 @@ public class ConsultaController {
         Consulta criandoConsulta = consultaService.create(consulta);
         criandoConsulta.setMedico(medico);
         criandoConsulta.setPaciente(paciente);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        String dataFormatada = dataHora.format(formatter);
+
+        String destinatario = consulta.getPaciente().getEmail();
+        String assunto = "Agendamento de consulta";
+        String conteudo = "Olá " + consulta.getPaciente().getFirstName()
+                + " "
+                + consulta.getPaciente().getLastName()
+                + ",\n\n Sua consulta foi agendada para o dia "
+                + dataFormatada
+                + " e o seu médico é o DR."
+                + consulta.getMedico().getFirstName()
+                + " "
+                + consulta.getMedico().getLastName();
+
+        emailSenderService.sendSimpleEmail(destinatario, assunto, conteudo);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(criandoConsulta);
     }
 
