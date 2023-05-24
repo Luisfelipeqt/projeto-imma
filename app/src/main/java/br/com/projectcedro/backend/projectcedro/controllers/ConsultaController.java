@@ -115,8 +115,8 @@ public class ConsultaController {
             @ApiResponse(description = "Não encontrado", responseCode = "404", content = @Content),
             @ApiResponse(description = "Error no servidor", responseCode = "500", content = @Content)
     })
-    public EntityModel<Consulta> update(@Valid@RequestBody Consulta consulta, @PathVariable Long id) {
-        Consulta consults = consultaService.update(consulta, id);
+    public EntityModel<Consulta> update(@Valid @RequestBody  @PathVariable Long id, Consulta consulta) {
+        Consulta consults = consultaService.update(id, consulta);
         return consultaAssembler.toModel(consults);
     }
 

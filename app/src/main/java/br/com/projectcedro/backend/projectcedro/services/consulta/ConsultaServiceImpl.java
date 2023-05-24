@@ -42,14 +42,14 @@ public class ConsultaServiceImpl implements IConsultaService{
         return entity;
     }
 
-    public Consulta create(Consulta Consulta) {
-        if (Consulta == null) throw new ResourceNotFoundException("Consulta não encontrado!");
+    public Consulta create(Consulta consulta) {
+        if (consulta == null) throw new ResourceNotFoundException("Consulta não encontrado!");
         logger.info("Criando uma consulta!");
-        var entity =  consultaRepository.save(Consulta);
+        var entity =  consultaRepository.save(consulta);
         return entity;
     }
 
-    public Consulta update(Consulta consulta, Long id) {
+    public Consulta update(Long id, Consulta consulta) {
         logger.info("Atualizando uma consulta!");
 
         findById(id);

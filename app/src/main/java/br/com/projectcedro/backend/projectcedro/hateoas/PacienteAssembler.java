@@ -22,6 +22,10 @@ public class PacienteAssembler implements SimpleRepresentationModelAssembler<Pac
                 .withSelfRel()
                 .withType("GET");
 
+        Link criarLink = linkTo(methodOn(PacienteController.class).create(new Paciente()))
+                .withSelfRel()
+                .withType("POST");
+
         Link editarLink = linkTo(methodOn(PacienteController.class).update(null, id))
                 .withSelfRel()
                 .withType("PUT");
@@ -30,7 +34,7 @@ public class PacienteAssembler implements SimpleRepresentationModelAssembler<Pac
                 .withSelfRel()
                 .withType("DELETE");
 
-        resource.add(selfLink, editarLink, excluirLink);
+        resource.add(selfLink, criarLink, editarLink, excluirLink);
     }
 
     @Override

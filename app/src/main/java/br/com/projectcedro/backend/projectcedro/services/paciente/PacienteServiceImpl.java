@@ -2,13 +2,19 @@ package br.com.projectcedro.backend.projectcedro.services.paciente;
 
 import br.com.projectcedro.backend.projectcedro.entities.Paciente;
 import br.com.projectcedro.backend.projectcedro.repositories.PacienteRepository;
+import br.com.projectcedro.backend.projectcedro.services.EmailSenderService;
 import br.com.projectcedro.backend.projectcedro.services.exceptions.ResourceNotFoundException;
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.logging.Logger;
 
@@ -20,6 +26,7 @@ public class PacienteServiceImpl implements IPacienteService{
 
 
     private final PacienteRepository pacienteRepository;
+
 
 
     public List<Paciente> findAll() {
@@ -40,10 +47,10 @@ public class PacienteServiceImpl implements IPacienteService{
         return entity;
     }
 
-    public Paciente create(Paciente Paciente) {
-        if (Paciente == null) throw new ResourceNotFoundException("Paciente não encontrado!");
+    public Paciente create(Paciente paciente) {
+        if (paciente == null) throw new ResourceNotFoundException("Paciente não encontrado!");
         logger.info("Criando um paciente!");
-        var entity =  pacienteRepository.save(Paciente);
+        var entity =  pacienteRepository.save(paciente);
         return entity;
     }
 

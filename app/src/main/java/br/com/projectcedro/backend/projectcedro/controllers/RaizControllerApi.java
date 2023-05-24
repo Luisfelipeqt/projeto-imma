@@ -1,6 +1,7 @@
 package br.com.projectcedro.backend.projectcedro.controllers;
 
 import br.com.projectcedro.backend.projectcedro.hateoas.RaizModel;
+import br.com.projectcedro.backend.projectcedro.uteis.MediaType;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -16,11 +17,11 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping("http://localhost:8080/")
+@RequestMapping("/api/v1")
 @Tag(name = "API", description = "Endpoints para Gerenciamento de API's")
 public class RaizControllerApi {
 
-    @GetMapping
+    @GetMapping(produces = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_YML})
     @Operation(summary = "Realiza a busca pelas API's", method = "GET")
     @ApiResponses(value = {
             @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),

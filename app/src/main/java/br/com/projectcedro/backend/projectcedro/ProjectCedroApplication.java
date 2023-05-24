@@ -1,11 +1,19 @@
 package br.com.projectcedro.backend.projectcedro;
 
+import br.com.projectcedro.backend.projectcedro.services.EmailSenderService;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.info.License;
+import jakarta.mail.MessagingException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @SpringBootApplication
 @OpenAPIDefinition(
@@ -26,6 +34,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 )
 public class ProjectCedroApplication {
+
 
     public static void main(String[] args) {
         SpringApplication.run(ProjectCedroApplication.class, args);

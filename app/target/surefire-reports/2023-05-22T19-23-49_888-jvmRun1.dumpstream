@@ -1,0 +1,50 @@
+# Created at 2023-05-22T19:24:03.523
+TestSet has not finished before stream error has appeared >> initializing exit by non-null configuration: null
+java.io.EOFException
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:398)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+
+# Created at 2023-05-22T19:24:07.565
+Unexpected IOException with stream: 2023-05-22T19:24:07.563-03:00  INFO 10092 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+
+
+# Created at 2023-05-22T19:24:07.580
+Unexpected IOException with stream: 2023-05-22T19:24:07.578-03:00  INFO 10092 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+
+# Created at 2023-05-22T19:24:09.994
+Unexpected IOException with stream: 2023-05-22T19:24:09.993-03:00  WARN 10092 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 420680e5-e737-433c-8ec7-da6513a58a50
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+
+
+# Created at 2023-05-22T19:24:12.142
+Unexpected IOException with stream: 2023-05-22T19:24:12.141-03:00  INFO 10092 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+
+
+# Created at 2023-05-22T19:24:12.263
+Unexpected IOException with stream: 2023-05-22T19:24:12.262-03:00  INFO 10092 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@373e09c7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3f04847e, org.springframework.security.web.context.SecurityContextHolderFilter@6236beac, org.springframework.security.web.header.HeaderWriterFilter@6a73b74c, org.springframework.web.filter.CorsFilter@2a7b4b19, org.springframework.security.web.authentication.logout.LogoutFilter@2057d8ec, br.com.projectcedro.backend.projectcedro.config.security.MyFilter@26415b5e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1320d929, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@290ebbbe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@61761e60, org.springframework.security.web.access.ExceptionTranslationFilter@57f8a3cf, org.springframework.security.web.access.intercept.AuthorizationFilter@76e56b17]
+
+
+# Created at 2023-05-22T19:24:12.931
+Unexpected IOException with stream: 2023-05-22T19:24:12.930-03:00  INFO 10092 --- [           main] b.c.p.b.p.ProjectCedroApplicationTests   : Started ProjectCedroApplicationTests in 21.057 seconds (process running for 22.354)
+
+
+# Created at 2023-05-22T19:24:13.003
+Unexpected IOException: 5,1,br.com.projectcedro.backend.projectcedro.ProjectCedroApplicationTests,contextLoads,null,null,null
+
+
+# Created at 2023-05-22T19:24:13.200
+Unexpected IOException: 6,1,br.com.projectcedro.backend.projectcedro.ProjectCedroApplicationTests,contextLoads,null,null,null
+
+
+# Created at 2023-05-22T19:24:13.203
+Unexpected IOException: 2,1,org.apache.maven.surefire.junitplatform.JUnitPlatformProvider,br.com.projectcedro.backend.projectcedro.ProjectCedroApplicationTests,null,null,null
+
+

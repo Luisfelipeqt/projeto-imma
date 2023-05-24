@@ -4,6 +4,7 @@ import br.com.projectcedro.backend.projectcedro.controllers.exceptions.ErrorResp
 import br.com.projectcedro.backend.projectcedro.entities.Paciente;
 import br.com.projectcedro.backend.projectcedro.hateoas.PacienteAssembler;
 import br.com.projectcedro.backend.projectcedro.repositories.PacienteRepository;
+import br.com.projectcedro.backend.projectcedro.services.EmailSenderService;
 import br.com.projectcedro.backend.projectcedro.services.paciente.IPacienteService;
 import br.com.projectcedro.backend.projectcedro.uteis.MediaType;
 import io.swagger.v3.oas.annotations.Operation;
@@ -39,8 +40,9 @@ public class PacienteController {
 
     private final IPacienteService pacienteService;
 
-
     private final PacienteAssembler pacienteAssembler;
+
+    private final EmailSenderService emailSenderService;
 
 
     private final PagedResourcesAssembler<Paciente> pagedResourcesAssembler;
@@ -94,6 +96,12 @@ public class PacienteController {
         }
 
         Paciente consults = pacienteService.create(paciente);
+
+        String destinatario = paciente.getEmail();
+        String assunto = "Cadastro efetuado com sucesso";
+        String conteudo = "Olá " + paciente.getFirstName() + " " + paciente.getLastName() + ",\n\nBem-vindo ao nosso aplicativo!";
+        emailSenderService.sendSimpleEmail(destinatario, assunto, conteudo);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(consults);
     }
 

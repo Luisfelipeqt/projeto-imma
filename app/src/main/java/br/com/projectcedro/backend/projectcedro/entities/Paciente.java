@@ -24,28 +24,29 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb_paciente")
-@ToString(onlyExplicitlyIncluded = true)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @Relation(collectionRelation = "pacientes")
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
 public class Paciente extends RepresentationModel<Paciente>  implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
+
     @Id
-    @ToString.Include
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
     @NotEmpty
+    @NotBlank
     @Size(min = 3, max = 80)
     @Column(nullable = false, length = 80)
     private String firstName;
 
     @NotNull
     @NotEmpty
+    @NotBlank
     @Size(min = 3, max = 80)
     @Column(nullable = false, length = 80)
     private String lastName;
@@ -54,6 +55,7 @@ public class Paciente extends RepresentationModel<Paciente>  implements Serializ
     @NotNull
     @NotEmpty
     @Size(min = 14, max = 14)
+    @EqualsAndHashCode.Include
     @Column(nullable = false, length = 14, unique = true)
     private String cpf;
 
@@ -61,14 +63,15 @@ public class Paciente extends RepresentationModel<Paciente>  implements Serializ
     @NotNull
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = ISO.DATE)
-    @Column(name = "data_nascimento", nullable = false)
+    @Column(name = "data_nascimento")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Date dataNascimento;
 
     @NotNull
     @NotEmpty
+    @NotBlank
     @Size(min = 15, max = 15)
-    @Column(nullable = false, length = 15)
+    @Column(nullable = false, length = 15, unique = true)
     @Pattern(regexp = "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$", message = "Deve estar no formato (99) 99999-9999")
     private String telefone;
 

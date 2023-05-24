@@ -12,16 +12,17 @@ import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.hateoas.RepresentationModel;
 import org.springframework.hateoas.server.core.Relation;
-
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+
+
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb_consulta")
-@ToString(onlyExplicitlyIncluded = true)
+@ToString
 @JsonNaming(SnakeCaseStrategy.class)
 @Relation(collectionRelation = "consultas")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -30,7 +31,6 @@ public class Consulta extends RepresentationModel<Consulta> implements Serializa
     private static final long serialVersionUID = 1L;
 
     @Id
-    @ToString.Include
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

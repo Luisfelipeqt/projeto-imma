@@ -18,7 +18,8 @@ public class SecurityConfig {
                 .requestMatchers(
                         "/swagger-ui/**",
                         "/v3/api-docs/**",
-                        "/api/**"
+                        "/api/**",
+                        "/api/v1"
                 ).permitAll()
                 .anyRequest().authenticated().and().cors(); // todas as outras urls terão a necessidade de autenticação
 

@@ -22,6 +22,10 @@ public class MedicoAssembler implements SimpleRepresentationModelAssembler<Medic
                 .withSelfRel()
                 .withType("GET");
 
+        Link criarLink = linkTo(methodOn(MedicoController.class).create(new Medico()))
+                .withSelfRel()
+                .withType("POST");
+
         Link editarLink = linkTo(methodOn(MedicoController.class).update(null, id))
                 .withSelfRel()
                 .withType("PUT");
@@ -30,7 +34,7 @@ public class MedicoAssembler implements SimpleRepresentationModelAssembler<Medic
                 .withSelfRel()
                 .withType("DELETE");
 
-        resource.add(selfLink, editarLink, excluirLink);
+        resource.add(selfLink, criarLink, editarLink, excluirLink);
     }
 
     @Override

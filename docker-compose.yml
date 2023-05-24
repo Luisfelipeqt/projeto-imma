@@ -6,9 +6,9 @@ services:
     restart: always
     environment:
       TZ: America/Sao_Paulo
-      MYSQL_ROOT_PASSWORD: 99620530
+      MYSQL_ROOT_PASSWORD: 99620530159aA
       MYSQL_USER: admin
-      MYSQL_PASSWORD: 99620530a
+      MYSQL_PASSWORD: 99620530159aA
       MYSQL_DATABASE: labcedro
     ports:
       - "3308:3306"

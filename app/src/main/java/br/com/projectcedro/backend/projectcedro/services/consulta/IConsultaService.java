@@ -12,8 +12,8 @@ public interface IConsultaService {
 
     public boolean existeConsultaAgendada(Medico medico, LocalDateTime dataHora);
     public void delete(Long id);
-    public Consulta update(Consulta consulta, Long id);
-    public Consulta create(Consulta Consulta);
+    public Consulta update(Long id, Consulta consulta);
+    public Consulta create(Consulta consulta);
     public Consulta findById(Long id);
     public Page<Consulta> findAll(Pageable pageable);
     public List<Consulta> findAll();

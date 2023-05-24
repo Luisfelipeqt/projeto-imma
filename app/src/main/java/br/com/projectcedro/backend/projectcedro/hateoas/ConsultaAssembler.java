@@ -22,7 +22,11 @@ public class ConsultaAssembler implements SimpleRepresentationModelAssembler<Con
                 .withSelfRel()
                 .withType("GET");
 
-        Link editarLink = linkTo(methodOn(ConsultaController.class).update(null, id))
+        Link criarLink = linkTo(methodOn(ConsultaController.class).create(new Consulta()))
+                .withSelfRel()
+                .withType("POST");
+
+        Link editarLink = linkTo(methodOn(ConsultaController.class).update(id, new Consulta()))
                 .withSelfRel()
                 .withType("PUT");
 
@@ -30,7 +34,7 @@ public class ConsultaAssembler implements SimpleRepresentationModelAssembler<Con
                 .withSelfRel()
                 .withType("DELETE");
 
-        resource.add(selfLink, editarLink, excluirLink);
+        resource.add(selfLink, criarLink, editarLink, excluirLink);
     }
 
     @Override
