@@ -1,0 +1,15 @@
+
+Œ
+java:S1128"jRemove this unused import 'br.com.projectcedro.backend.projectcedro.api.consultas.mappers.ConsultaMapper'.(‰áøÿÿÿÿ8†¡†1
+†
+java:S1128"dRemove this unused import 'br.com.projectcedro.backend.projectcedro.api.medicos.dtos.MedicoRequest'.(–¬¯¥ùÿÿÿÿ8†¡†1
+‚
+java:S1128"eRemove this unused import 'br.com.projectcedro.backend.projectcedro.api.medicos.dtos.MedicoResponse'.(‘›ô¨8†¡†1
+ˆ
+java:S1128"fRemove this unused import 'br.com.projectcedro.backend.projectcedro.api.medicos.mappers.MedicoMapper'.(ëÂ øÿÿÿÿ8†¡†1
+w
+java:S1128"ZRemove this unused import 'br.com.projectcedro.backend.projectcedro.core.entities.Medico'.(Êº8†¡†1
+c
+java:S1128"ARemove this unused import 'org.springframework.data.domain.Page'.(˜âüÿÿÿÿ8†¡†1
+g
+java:S1128"ERemove this unused import 'org.springframework.data.domain.Pageable'.(‡ë‚Öıÿÿÿÿ8†¡†1
