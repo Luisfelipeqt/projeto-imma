@@ -19,21 +19,5 @@ Vapp/src/main/java/br/com/projectcedro/backend/projectcedro/core/entities/Pacien
 [app/src/main/java/br/com/projectcedro/backend/projectcedro/core/entities/PlanosDeSaude.java,3\f\3fd1bc2d1554f26c10881503916a3a0b0f683465
 ;
 app/pom.xml,3\9\393b54a143a2f25876bdfcbd2ae6dc1db9c1672e
-ò
-happ/src/main/java/br/com/projectcedro/backend/projectcedro/api/medicos/controllers/MedicoController.java,e\b\ebd88843cd3f986f2fa46fde69668f0a47e8250b
-î
-dapp/src/main/java/br/com/projectcedro/backend/projectcedro/core/repositories/PacienteRepository.java,d\f\df7ff552916a129dba9acb193f7da02453da7747
-ú
-lapp/src/main/java/br/com/projectcedro/backend/projectcedro/api/pacientes/controllers/PacienteController.java,0\4\04b780e2b2fa275fc860837a6a4742fdb25564de
 ß
 wapp/src/main/java/br/com/projectcedro/backend/projectcedro/api/pacientes/controllers/OperadoraPlanoSaudeController.java,d\1\d1e5e61b404a340c323ea6f6386f4966320b7668
-ö
-japp/src/main/java/br/com/projectcedro/backend/projectcedro/api/pacientes/services/PacienteServiceImpl.java,3\3\33258bc698b52285030c995ab5ecc313d4e85cd8
-ñ
-fapp/src/main/java/br/com/projectcedro/backend/projectcedro/api/medicos/services/MedicoServiceImpl.java,4\a\4a5cb1c9cd5d392dd4499cf147e3e3da99587e57
-ì
-capp/src/main/java/br/com/projectcedro/backend/projectcedro/api/medicos/services/IMedicoService.java,5\3\53c7de7344e9f719b6c23139705a6ff042ce902f
-ó
-gapp/src/main/java/br/com/projectcedro/backend/projectcedro/api/pacientes/services/IPacienteService.java,b\a\bac26e0dc3407d012f0aebf94979d4a09d67112a
-ê
-`app/src/main/java/br/com/projectcedro/backend/projectcedro/api/medicos/mappers/MedicoMapper.java,0\a\0a37263ff95a319c3311671727cd9f07615f2690
