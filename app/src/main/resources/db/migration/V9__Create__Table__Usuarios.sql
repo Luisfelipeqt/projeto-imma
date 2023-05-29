@@ -1,6 +1,0 @@
-CREATE TABLE IF NOT EXISTS `tb_usuarios` (
-    `id` BIGINT AUTO_INCREMENT PRIMARY KEY,
-    `login` VARCHAR(255) NOT NULL,
-    `senha` VARCHAR(255) NOT NULL,
-    `nome` VARCHAR(255)
-);
