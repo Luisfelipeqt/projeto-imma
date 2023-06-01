@@ -44,5 +44,5 @@ jobs:
       
     - name: Push pro Dockerhub
       run: |
-        docker tag luisfeliperodrigues/projectcedro-deploy: latest luisfeliperodrigues/projectcedro-deploy:${{ github.run_id }}
+        docker tag luisfeliperodrigues/projectcedro-deploy:latest luisfeliperodrigues/projectcedro-deploy:${{ github.run_id }}
         docker push luisfeliperodrigues/projectcedro-deploy:${{ github.run_id }}
